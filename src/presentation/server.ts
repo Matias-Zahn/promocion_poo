@@ -3,20 +3,19 @@ import { FileSystemRepository } from "../infrastructure/repostiories/fyleSystem.
 import { CronService } from "./cron/cron.service";
 
 
-const fileSystemRepository = new FileSystemRepository()
+const fileSystemRepository = new FileSystemRepository();
 
 export class Server{
-
+    
     public static start(){
         CronService.startJob(
             "*/3 * * * * *",
-
             () => {
                 new CheckService(
                     fileSystemRepository,
-                    () => console.log("Success"),
+                    () => console.log("Checkeo completado"),
                     (error) => console.log(error)
-                ).execute("https://google.com");
+                ).execute("https://googlees.com");
             }
         );
     }

@@ -49,6 +49,8 @@ export class LogEntity{
     }
 
 
-
+    set setSeverytLevel(newSeverityLevel: SeverityLevel) {
+        this.severityLevel = newSeverityLevel;
+    }
 
 }

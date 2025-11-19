@@ -32,9 +32,10 @@ export class FileSystemRepository extends LogRepository{
             fs.writeFileSync(path, "", 'utf8')
         })
     }
+    
 
 
-    async saveLog(log: LogEntity): Promise<void> {
+    override async saveLog(log: LogEntity): Promise<void> {
 
         const logAsJSON = `${JSON.stringify(log, null, 2)}\n`;
 
@@ -61,7 +62,7 @@ export class FileSystemRepository extends LogRepository{
     }
 
 
-    async getLogs(severityLevel: SeverityLevel): Promise<LogEntity[]> {
+    override async getLogs(severityLevel: SeverityLevel): Promise<LogEntity[]> {
 
         switch (severityLevel){
             case SeverityLevel.low:
